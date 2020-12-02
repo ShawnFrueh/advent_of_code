@@ -5,7 +5,7 @@ puzzle_input = os.path.join(os.path.dirname(__file__), "input.txt")
 
 # Get puzzle data from file
 with open(puzzle_input, "r") as puzzle:
-    # Convert each line into an integer
+    # Get the puzzle data.
     puzzle_data = puzzle.read()
 
 # ------------------------- Part 1/2 -------------------------
