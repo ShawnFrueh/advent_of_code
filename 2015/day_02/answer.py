@@ -11,16 +11,16 @@ with open(puzzle_input, "r") as puzzle:
 
 def get_area(l, w, h):
     # Sort list to get shortest side
-    min = sorted((l, w, h))
+    _min = sorted((l, w, h))
     # Calculation rules per puzzle
-    return 2*l*w + 2*w*h + 2*h*l + min[0]*min[1]
+    return 2*l*w + 2*w*h + 2*h*l + _min[0]*_min[1]
 
 
 def get_ribbon(l, w, h):
     # Sort list to get shortest side
-    min = sorted((l, w, h))
+    _min = sorted((l, w, h))
     # Add the two shortest sides together
-    ribbon_len = min[0] + min[0] + min[1] + min[1]
+    ribbon_len = _min[0] + _min[0] + _min[1] + _min[1]
     # Add the volume of the present
     ribbon_len += l*w*h
     return ribbon_len
