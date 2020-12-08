@@ -59,12 +59,15 @@ for t in rows:
         seat_id = id
     all_seats.append({"Row": t[0], "Col": t[1], "Seat ID": id})
 
-print("Max ID:", seat_id)
+print(f"Max seat id: {seat_id}")
 # 870, 879
 
 # ------------------------- Part 2/2 -------------------------
 """ Puzzle Rules:
+Your seat wasn't at the very front or back, though; 
+the seats with IDs +1 and -1 from yours will be in your list.
 
+What is the ID of your seat?
 """
 sorted_seats = sorted(all_seats, key=lambda k: k['Row'])
 seats = {}
@@ -77,9 +80,19 @@ for seat in sorted_seats:
         seats[row] = {}
         seats[row]["count"] = 1
         seats[row]["cols"] = [seat]
-    print(seat)
-print("Seats")
+
+unfilled_seats = []
 for seat in seats:
     if seats.get(seat).get("count") != 8:
-        print(sorted(seats[seat]["cols"], key=lambda k: k['Col']))
-#print(seats)
+        unfilled_seats.append(sorted(seats[seat]["cols"], key=lambda k: k["Col"]))
+
+# Find the missing seat
+available_seats = list(range(8))
+for seat in unfilled_seats[1]:
+    available_seats.remove(seat.get("Col"))
+
+print(available_seats)
+if len(available_seats) == 1:
+    seat = unfilled_seats[1][available_seats[0]]
+    seat_id = seat.get("Row") * 8 + available_seats[0]
+    print(f"My seat id: {seat_id}")

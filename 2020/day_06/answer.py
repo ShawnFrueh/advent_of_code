@@ -6,7 +6,8 @@ puzzle_data = input_file.read_text().split("\n\n")
 
 # ------------------------- Part 1/2 -------------------------
 """ Puzzle Rules:
-
+For each group, count the number of questions to which anyone answered "yes". 
+What is the sum of those counts?
 """
 total_answers = 0
 for group in puzzle_data:
@@ -18,15 +19,16 @@ for group in puzzle_data:
                 answers.append(answer)
     total_answers += len(answers)
 
-print(total_answers)
+print(f"{total_answers} total unanimous answers.")
 
 # ------------------------- Part 2/2 -------------------------
 """ Puzzle Rules:
-# 3211, 3235
+For each group, count the number of questions to which everyone answered "yes".
+What is the sum of those counts?
 """
 total_answers = 0
 for group in puzzle_data:
     passengers = [set(p) for p in group.strip().split("\n")]
     total_answers += len(set.intersection(*passengers))
 
-print(total_answers)
+print(f"{total_answers} total unanimous answers.")
