@@ -6,7 +6,7 @@ from urllib.request import urlopen
 repo_path = Path(__file__).parent
 
 year = 2020
-day = 9
+day = 10
 url = "http://adventofcode.com/{}/day/{}/input".format(year, day)
 # Cookie for your login info. Each user gets a special series if input data.
 session_id = "53616c7465645f5fb33ae07a0f3e46d59dff717f575af35290b79ec3443771cae3f1b989fe852e399896fdb4e8f954b0"
